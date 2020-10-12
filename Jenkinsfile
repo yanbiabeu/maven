@@ -10,7 +10,7 @@ node('master')
 	}
     stage('Continuous Deployment') 
 	{
-sh label: '', script: 'cp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war  /var/lib/jenkins/qa'
+sh label: '', script: 'cp -rf /var/lib/jenkins/workspace/job_test/webapp/target/webapp.war  /var/lib/jenkins/qa'
 	}
     stage('Continuous Testing') 
 	{
@@ -18,6 +18,6 @@ sh label: '', script: 'cp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webap
 	}
     stage('Continuous Delivery') 
 	{
-sh label: '', script: 'cp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war   /var/lib/jenkins/prod'
+sh label: '', script: 'cp -rf /var/lib/jenkins/workspace/job_test/webapp/target/webapp.war   /var/lib/jenkins/prod'
 	}
 }
